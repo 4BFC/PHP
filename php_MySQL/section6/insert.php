@@ -1,7 +1,7 @@
 <?php
 // mysql에 접속하겠다는 함수이다.
 $conn = mysqli_connect("localhost", "root", "1024", "phpmysql");
-mysqli_query($conn, "
+$sql =  "
 INSERT INTO topic 
   (title, description, created)
     VALUE(
@@ -9,4 +9,9 @@ INSERT INTO topic
       'MySQL is ..',
       NOW()
     )
-");
+";
+
+$result = mysqli_query($conn, $sql);
+if ($result === false) {
+  echo mysqli_error($conn);
+}
