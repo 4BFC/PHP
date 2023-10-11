@@ -9,6 +9,7 @@ $conn = mysqli_connect(
 $sql = "SELECT * FROM topic";
 $result = mysqli_query($conn, $sql);
 $list = '';
+
 while ($row = mysqli_fetch_array($result)) {
   $escaped_title = htmlspecialchars($row['title']);
   $list = $list . "<li><a href=\"index.php?id={$row['id']}\">{$escaped_title}</a></li>";
@@ -18,6 +19,7 @@ $article = array(
   'title' => 'Welcome',
   'description' => 'Hello, web'
 );
+
 $update_link = '';
 if (isset($_GET['id'])) {
   $filtered_id = mysqli_real_escape_string($conn, $_GET['id']);

@@ -20,6 +20,7 @@ $article = array(
   'title' => 'Welcome',
   'description' => 'Hello, web'
 );
+
 $update_link = '';
 if (isset($_GET['id'])) {
   $filtered_id = mysqli_real_escape_string($conn, $_GET['id']);
