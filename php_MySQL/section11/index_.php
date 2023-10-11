@@ -1,16 +1,14 @@
 <?php
-mysqli_report(MYSQLI_REPORT_OFF);
 $conn = mysqli_connect(
   'localhost',
   'root',
-  '1024',
-  'phpmysql'
+  '111111',
+  'opentutorials'
 );
 
 $sql = "SELECT * FROM topic";
 $result = mysqli_query($conn, $sql);
-$list = "";
-
+$list = '';
 while ($row = mysqli_fetch_array($result)) {
   $escaped_title = htmlspecialchars($row['title']);
   $list = $list . "<li><a href=\"index.php?id={$row['id']}\">{$escaped_title}</a></li>";
@@ -28,17 +26,16 @@ if (isset($_GET['id'])) {
   $row = mysqli_fetch_array($result);
   $article['title'] = htmlspecialchars($row['title']);
   $article['description'] = htmlspecialchars($row['description']);
-  // <a href="update.php?id="></a>
+
   $update_link = '<a href="update.php?id=' . $_GET['id'] . '">update</a>';
 }
-?>
 
-<!DOCTYPE html>
-<html lang="eng">
+?>
+<!doctype html>
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
   <title>WEB</title>
 </head>
 
@@ -47,10 +44,8 @@ if (isset($_GET['id'])) {
   <ol>
     <?= $list ?>
   </ol>
-
   <a href="create.php">create</a>
   <?= $update_link ?>
-  <!-- 위의 update_link는 해당 if문의 t/f에 따라서 활성화의 여부가 따른다. 즉, URL에서 매개변수 id값이 주어지면 해당 update a태그가 활성화가 되는 것이다. 이후 update.php파일로 넘어가서 html코드를 살펴보자. -->
   <h2><?= $article['title'] ?></h2>
   <?= $article['description'] ?>
 </body>
