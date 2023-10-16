@@ -43,6 +43,13 @@ $conn = mysqli_connect(
       <td><?= $filtered['name'] ?></td>
       <td><?= $filtered['profile'] ?></td>
       <td><a href="author.php?id=<?= $filtered['id'] ?>">update</a></td>
+      <td>
+        <form action="process_delete_author.php" method="POST" onsubmit="if(!confirm('sure?')){return false;}">
+          <input type="hidden" name="id" value="<?= $filtered['id'] ?>">
+          <!-- {<?= $filtered['id'] ?>} 여기서 괄호를 넣고 안놓고에 따라서 데이터를 전송할 수 있고 없고가 결정된다. -->
+          <input type="submit" value="delete">
+        </form>
+      </td>
     </tr>
 
   <?php
