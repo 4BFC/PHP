@@ -16,13 +16,20 @@ $id = $_GET['id'];
 </head>
 
 <body>
-  <h1>ID is "<?= $id ?>"</h1>
+  <h1>"<?= $id ?>"</h1>
 
   <h2>Select type</h2>
   <a href="Link_get.php?id=get_type">GET</a>
   <a href="Link_post.php?id=post_type">POST</a>
-  <br><br>
-  <a href="../contact_URL.php">BACK</a>
+
+  <h3>GET value</h3>
+  <hr>
+  <form action="get_value.php" method="GET">
+    <input type="text" name="id" placeholder="value">
+    <input type="submit" value="submit">
+  </form>
+
+  <a href="./Link_A.php?id=Link_A">BACK</a>
 </body>
 
 </html>
