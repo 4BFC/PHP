@@ -13,6 +13,7 @@ $id = $_GET['id'];
 
 <body>
   <h1>HERE IS GET_ZONE! "<?= $id ?>"</h1>
+  <a href="./Link_A.php">BACK</a>
 </body>
 
 </html>

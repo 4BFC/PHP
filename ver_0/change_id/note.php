@@ -12,15 +12,11 @@
   <script>
     document.getElementById("changeURLButton").addEventListener("click", function() {
       try {
-        let newId = document.getElementById("newIdInput").value;
+        var newId = document.getElementById("newIdInput").value;
         if (newId) {
-          let xhr = new XMLHttpRequest();
-          // var url = window.location.href; // 서버 스크립트 URL로 변경
-          // url += "?id=" + newId;
-          // console.log(window.location.href);
-          let newURL = window.location.href.split('?')[0] + "?id=" + newId;
+          var xhr = new XMLHttpRequest();
+          var newURL = window.location.href.split('?')[0] + "?id=" + newId;
 
-          xhr.open("GET", newURL, true);
           xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
               console.log("URL changed successfully.");
