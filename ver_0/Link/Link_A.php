@@ -31,7 +31,6 @@ if ($id != "") {
 }
 ?>
 
-
 <!-- HTML_zone -->
 <!DOCTYPE html>
 <html lang="en">
@@ -61,9 +60,7 @@ if ($id != "") {
     console.log(`[${log_data.name}],[${log_data.date}],[${log_data.data}]`);
   </script>
   <script>
-    let newlocation = "Tokyo";
-    document.querySelector("#input_location").value = newlocation;
-    // alert(document.querySelector("#input_location").value);
+    let location_value = document.querySelector("#input_location").value = "Tokyo";
   </script>
 
   <h2>Select type</h2>
@@ -73,7 +70,7 @@ if ($id != "") {
   <a href="Link_get.php?id=get_type">GET</a>
   <a href="Link_post.php?id=post_type">POST</a>
   <form action="./process_create.php" method="POST" onsubmit="alert('Check your Click! : ');">
-    <input type="hidden" id="input_location" name="location">
+    <input type="hidden" id="input_location" name="location" value="Tokyo">
     <p><input type="submit"></p>
   </form>
 
