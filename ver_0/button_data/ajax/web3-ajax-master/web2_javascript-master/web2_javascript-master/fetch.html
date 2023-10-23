@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <article>
+
+  </article>
+  <input type="button" value="fetch" onclick="
+  /*
+  //fetch의 매개변수에 따라서 가져오는 데이터가 다르다 참고로 현재 fetch는 우리가 method 속성을 변경하지 않았기 때문에 기본적으로 GET 타입인 것이다. 즉, css라는 데이터를 가져오겠다는 의미이다.
+    fetch('css').then(function(response){
+      // 그렇게 css의 데이터파일을 resonse로 받아오고 .text 함수로 해당 작성된 글로 진입하고 그걸 text로 다음 then에서 받는다.
+      response.text().then(function(text){
+        // 그렇게 text 변수에는 css의 response의 text의 text를 alert로 호출 하는 것이다.
+        // alert(text);
+        //위의 방식을 이용해서 article에 text를 삽입하는 방법으로 구성 해보자.
+        document.querySelector('article').innerHTML = text;
+        //여기까지 우리는 다른 데이터의, 페이지의 데이터를 가지고 와서 이것들을 spa와 같은 동적 페이지로 구성하고 있다. 이것은 서버와는 어떠한 연결이 되어 있는지 구체적으로 배워볼 필요가 있다.
+      })
+    })
+    */
+    function callbackme(){console.log('response')} 
+    //여기서 fetch가 html에 접속, 응답을 받고 그때(then) callbackme함수를 실행 시켜주라는 뜻 결과적으로 1,2의 값이 먼저 출력되고 그것들이 끝나고 난다음에 해당 callbackme 함수가 콜백된다.
+    fetch('html').then(callbackme); 
+    console.log(1);
+    console.log(2);
+    //위의 fetch가 실행되는 것을 확인 하는 방법은 개발자 창을 통해서 확인 할 수 있다. 개발자도구에서 NetWork에 들어가서 fetch버튼을 눌렀을 때 html을 200이라는 status로 정상접속이 되었다는 것을 알 수 있다.
+    ">
+</body>
+
+</html>
