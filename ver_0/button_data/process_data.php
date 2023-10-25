@@ -21,7 +21,6 @@ VALUES(
   NOW()
 )
 ";
-
 $result = mysqli_query($conn, $sql);
 
 if ($result === false) {

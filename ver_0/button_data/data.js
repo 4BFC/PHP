@@ -1,16 +1,18 @@
+//================ 서버와 데이터 처리를 위한 소스/부품 ===
 let hidden_text = document.querySelector(".hidden_text");//hidden_text는 현재 type이 숨겨져 있기 때문에 보이지 않는다.
 let hidden_num = document.querySelector(".hidden_num");
 let btn = document.querySelector(".btn");
 
-let random = Math.floor(Math.random() * (10 - 0 + 1) + 0);
-
+let random = Math.floor(Math.random() * 10);
+let random_text = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 let addBtn = () => btn.addEventListener("click", () => {
-  hidden_text.value = "test";
+  hidden_text.value = random_text[random];
   hidden_num.value = random;
   console.log("After : " + hidden_text.value);
 })
-//fetch가 없으면 실행이 안된다.
-fetch('button.php').then(addBtn());
+
+// ===================실제 서버와 데이터 처리===========
+fetch('button.php').then(() => addBtn());
 console.log("Before : " + hidden_text.value);
 console.log(random);
 
