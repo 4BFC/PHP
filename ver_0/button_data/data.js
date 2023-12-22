@@ -5,10 +5,11 @@ let btn = document.querySelector(".btn");
 
 let random = Math.floor(Math.random() * 10);
 let random_text = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-let addBtn = () => btn.addEventListener("click", () => {
+let addBtn = (e) => btn.addEventListener("click", () => {
   hidden_text.value = random_text[random];
   hidden_num.value = random;
   console.log("After : " + hidden_text.value);
+  e.preventDefault();
 })
 
 // ===================실제 서버와 데이터 처리===========

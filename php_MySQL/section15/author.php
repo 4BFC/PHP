@@ -42,6 +42,7 @@ $conn = mysqli_connect(
       <td><?= $filtered['id'] ?></td>
       <td><?= $filtered['name'] ?></td>
       <td><?= $filtered['profile'] ?></td>
+      <!-- update -->
       <td><a href="author.php?id=<?= $filtered['id'] ?>">update</a></td>
       <td>
         <form action="process_delete_author.php" method="POST" onsubmit="if(!confirm('sure?')){return false;}">
@@ -59,6 +60,7 @@ $conn = mysqli_connect(
   </table>
 
   <?php
+  // update for POST data
   $escaped = array(
     'name' => '',
     'profile' => ''
@@ -70,17 +72,22 @@ $conn = mysqli_connect(
   if (isset($_GET['id'])) {
     $filtered_id = mysqli_real_escape_string($conn, $_GET['id']);
     settype($filtered_id, 'integer');
+    // id에 해당 데이터 가지고 오기
     $sql = "SELECT * FROM author WHERE id = {$filtered_id}";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
+    $result = mysqli_query($conn, $sql); //해당 sql연결하기
+    $row = mysqli_fetch_array($result);  //mysqli_fetch_array는 결과 집합의 행을 배열로 가지고 오는 함수이다.
+
     $escaped['name'] = htmlspecialchars($row['name']);
     $escaped['profile'] = htmlspecialchars($row['profile']);
+    //
     $label_submit = 'Update author';
+    //update
     $form_author = 'process_update_author.php';
-    $form_id = '<input type="hidden" name="id" value="' . $_GET['id'] . '">';
+    $form_id = '<input type="hidden" name="id" value="' . $_GET['id'] . '">'; //id값을 전달하기 위함 -> process_update-author.php로 전달 후 처리
+    //' . $_GET['id'] . '는 PHP에서 문자열을 생성하고 조합하는 방법입니다. 이것은 문자열 연결(Concatenation)을 수행하는 코드이다.
   }
   ?>
-
+  <!-- update text area zone -->
   <form action="<?= $form_author ?>" method='POST'>
     <!-- 동적으로 값들이 변할 수 있게 설정 -->
     <?= $form_id ?>
